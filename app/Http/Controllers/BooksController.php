@@ -17,6 +17,13 @@ class BooksController extends Controller
         $book->update($this->validateRequest());
     }
 
+    public function destroy(Book $book)
+    {
+        $book->delete();
+
+        return redirect('/books');
+    }
+
     /**
      * @return array
      */

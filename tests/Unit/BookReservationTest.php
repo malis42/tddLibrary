@@ -62,4 +62,23 @@ class BookReservationTest extends TestCase
         $this->assertEquals('New Title', Book::first()->title);
         $this->assertEquals('New Author', Book::first()->author);
     }
+
+
+    /** @test */
+    public function aBookCanBeDeleted()
+    {
+
+        $this->post('/books', [
+            'title' => 'Very Cool Book',
+            'author' => 'malis42'
+        ]);
+
+        $book = Book::first();
+        $this->assertCount(1, Book::all());
+
+        $response = $this->delete('/books/' . $book->id);
+
+        $response->assertRedirect('/books');
+        $this->assertCount(0, Book::all());
+    }
 }
