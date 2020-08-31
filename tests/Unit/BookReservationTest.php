@@ -13,8 +13,6 @@ class BookReservationTest extends TestCase
     /** @test */
     public function aBookCanBeAddedToLibrary()
     {
-        $this->withoutExceptionHandling();
-
         $response = $this->post('/books', [
             'title' => 'Very Cool Book',
             'author' => 'malis42'
@@ -49,8 +47,6 @@ class BookReservationTest extends TestCase
     /** @test */
     public function aBookCanBeUpdated()
     {
-        $this->withoutExceptionHandling();
-
         $this->post('/books', [
             'title' => 'Very Cool Book',
             'author' => 'malis42'
