@@ -6,7 +6,7 @@ use App\Book;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class BookReservationTest extends TestCase
+class BookManagementTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -72,7 +72,6 @@ class BookReservationTest extends TestCase
     /** @test */
     public function aBookCanBeDeleted()
     {
-
         $this->post('/books', [
             'title' => 'Very Cool Book',
             'author' => 'malis42'
