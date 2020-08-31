@@ -20,7 +20,6 @@ class AuthorManagementTest extends TestCase
               'dob' => '04/20/1992'
           ]);
 
-
           $author = Author::all();
 
           $this->assertCount(1, $author);
