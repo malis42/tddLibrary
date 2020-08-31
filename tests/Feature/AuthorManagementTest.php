@@ -15,13 +15,13 @@ class AuthorManagementTest extends TestCase
     /** @test */
     public function anAuthorCanBeCreated()
     {
-        $this->withoutExceptionHandling();
-          $this->post('/author', [
+          $response = $this->post('/author', [
               'name' => 'Author name',
               'dob' => '04/20/1992'
           ]);
 
-        $author = Author::all();
+
+          $author = Author::all();
 
           $this->assertCount(1, $author);
           $this->assertInstanceOf(Carbon::class, $author->first()->dob);
